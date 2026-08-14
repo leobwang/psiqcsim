@@ -177,7 +177,7 @@ namespace psi{
         }
         else if (name == "cy"){
             this->mat[0][0] = 1, this->mat[1][1] = 1;
-            this->mat[2][3] = (0, -1), this->mat[3][2] = complex<double>(0, 1);
+            this->mat[2][3] = complex<double>(0, -1), this->mat[3][2] = complex<double>(0, 1);
         }
         else if (name == "cz"){
             this->mat[0][0] = 1, this->mat[1][1] = 1;
