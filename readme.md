@@ -2,9 +2,10 @@
 
 **A quantum-computing simulator written from scratch in C++, plus a
 brute-force gate-synthesis search.** The synthesis question: *given a set of
-building-block gates and a target gate, can the target be constructed by
-composing the building blocks?* If yes, the search prints a shortest gate
-sequence; if not, it says so.
+building-block gates and a target mapping between single-qubit states (e.g.
+|+⟩→|0⟩, |i⟩→|+⟩, |0⟩→|i⟩), can some composition of the building blocks
+realize that mapping (up to phase)?* If yes, the search prints a shortest gate
+sequence, in the order the gates are applied; if not, it says so.
 
 (`psi` = Ψ, the wave function.)
 
@@ -56,9 +57,9 @@ mapping: |+> -> |1>, |i> -> |i>, |0> -> |+>   →  Gate found: s-s-h
 mapping: |+> -> |1>, |i> -> |->, |0> -> |i>   →  Gate found: s-s-h-s
 ```
 
-(The third mapping is genuinely unreachable: it fixes |i⟩ while swapping
-|0⟩ ↔ |+⟩, which no unitary composition of S and H realizes — the search
-reporting "not found" is the correct answer, not a failure.)
+(The third mapping is genuinely unreachable: fixing |i⟩ while swapping
+|0⟩ ↔ |+⟩ is a reflection of the Bloch sphere, which no unitary can realize —
+so "not found" is the correct answer, not a failure.)
 
 ## Build & run
 
